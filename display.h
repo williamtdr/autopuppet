@@ -1,5 +1,5 @@
 task updateDisplay() {
-	if(systemState.waitingStart) {
+	if(systemState.wait) {
 		nxtDisplayCenteredTextLine(0,"AutoPuppet");
 		nxtDisplayCenteredTextLine(1,"---");
 		nxtDisplayCenteredTextLine(2,"Waiting for a");

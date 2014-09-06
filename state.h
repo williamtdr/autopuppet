@@ -11,13 +11,13 @@ void onRun() {
 }
 
 void switchState(int newState) {
-	systemState.waitingStart = false;
+	systemState.wait = false;
 	systemState.running = false;
 	systemState.stopped = false;
 
 	switch(newState) {
 		case STATE_WAIT:
-			systemState.waitingStart = true;
+			systemState.wait = true;
 			onWait();
 		break;
 		case STATE_RUN:

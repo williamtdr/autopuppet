@@ -13,7 +13,7 @@ typedef struct {
 joystickStateForm joystickState;
 
 typedef struct {
-	bool waitingStart;
+	bool wait;
 	bool stopped;
 	bool running;
 } systemStateForm;
