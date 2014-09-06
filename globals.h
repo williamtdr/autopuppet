@@ -14,8 +14,12 @@ joystickStateForm joystickState;
 
 typedef struct {
 	bool waitingStart;
+	bool stopped;
+	bool running;
 } systemStateForm;
 
 systemStateForm systemState;
 
-bool stopped = false;
+const int STATE_WAIT = 1;
+const int STATE_RUN = 2;
+const int STATE_STOP = 3;

@@ -8,17 +8,14 @@
 #include "globals.h"
 #include "joystick.h"
 #include "display.h"
+#include "state.h"
 
 task main() {
-	systemState.waitingStart = true;
-
-	displayInit();
-	StartTask(updateDisplay);
-
+	switchState(STATE_WAIT);
 	waitForStart();
-	StartTask(joystickMonitor);
+	switchState(STATE_RUN);
 
-	while(stopped == false) {
+	while(systemState.stopped == false) {
 		Sleep(1);
 	}
 }
