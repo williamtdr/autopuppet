@@ -8,6 +8,7 @@ void onWait() {
 
 void onStop() {
 	PlaySound(soundException);
+	Sleep(30000);  // give the user a chance to see the message
 }
 
 void onRun() {
