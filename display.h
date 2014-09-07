@@ -25,8 +25,8 @@ void displayRedraw() {
 		nxtDisplayCenteredTextLine(3,"%s",SAVED_FILE);
 		nxtDisplayCenteredTextLine(4,"");
 		nxtDisplayCenteredTextLine(5,"");
-		nxtDisplayCenteredTextLine(6,"");
-		nxtDisplayCenteredTextLine(7,"Press [  ] to stop.");
+		nxtDisplayCenteredTextLine(6,"Press [   ]");
+		nxtDisplayCenteredTextLine(7,"to stop.");
 	}
 }
 
