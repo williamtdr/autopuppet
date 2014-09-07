@@ -33,7 +33,10 @@ void onSecondPass() {
 }
 
 void onTick(int heartbeat) {
-	if(heartbeat % 100 == 0) {
+	TICK_HUNDREDS = TICK_HUNDREDS + 1;
+	if(TICK_HUNDREDS == 100) {
+		TICK_HUNDREDS = 1;
+
 		TIME_PASSED = TIME_PASSED + 1;
 		onSecondPass();
 	}

@@ -27,3 +27,4 @@ const int STATE_STOP = 3;
 string SAVED_FILE = "unknown.c";
 
 int TIME_PASSED = 0;
+int TICK_HUNDREDS = 1;
