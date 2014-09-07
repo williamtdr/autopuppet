@@ -26,4 +26,6 @@ task main() {
 	while(systemState.stopped == false) {
 		Sleep(1000);
 	}
+
+	Sleep(30000);  // give the user a chance to see the message
 }
