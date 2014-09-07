@@ -32,7 +32,7 @@ void onSecondPass() {
 	}
 }
 
-void onTick(int heartbeat) {
+task onTick() {
 	TICK_HUNDREDS = TICK_HUNDREDS + 1;
 	if(TICK_HUNDREDS == 100) {
 		TICK_HUNDREDS = 1;
@@ -47,12 +47,12 @@ void onTick(int heartbeat) {
 	}
 }
 
-void onJoy1PosUpdate(int x, int y) {
-	motor[LeftDrive] = x;
-	motor[RightDrive] = y;
+void onJoy1PosUpdate(int x1, int y1, int x2, int y2) {
+	motor[LeftDrive] = y1 * 0.78;
+	motor[RightDrive] = y2 * 0.78;
 }
 
-void onJoy2PosUpdate(int x, int y) {
+void onJoy2PosUpdate(int x1, int y1, int x2, int y2) {
 
 }
 

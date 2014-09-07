@@ -8,6 +8,8 @@ void onWait() {
 
 void onStop() {
 	PlaySound(soundException);
+	motor[LeftDrive] = 0;
+	motor[RightDrive] = 0;
 }
 
 void onRun() {
