@@ -24,6 +24,6 @@ const int STATE_WAIT = 1;
 const int STATE_RUN = 2;
 const int STATE_STOP = 3;
 
-const string SAVED_FILE = "unknown.c";
+string SAVED_FILE = "unknown.c";
 
 int TIME_PASSED = 0;

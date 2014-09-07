@@ -34,4 +34,6 @@ void switchState(int newState) {
 			onStop();
 		break;
 	}
+
+	displayRedraw();
 }

@@ -21,7 +21,7 @@ task main() {
 	waitForStart();
 	switchState(STATE_RUN);
 
-	while(systemState.stopped == false) {
+	while(true) {
 		Sleep(100);
 	}
 }
