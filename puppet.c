@@ -13,11 +13,13 @@
 #include "system/globals.h"
 #include "system/state.h"
 #include "system/event.h"
+#include "system/file.h"
 #include "system/doTick.h"
 #include "task/UpdateDisplayTask.h"
 #include "task/UpdateJoystickTask.h"
 
 task main() {
+	SAVED_FILE = getNextAvailableFilename("puppet-");
 	switchState(STATE_WAIT);
 
 	waitForStart();
