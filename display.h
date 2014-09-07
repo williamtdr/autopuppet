@@ -6,15 +6,19 @@ task updateDisplay() {
 		if(systemState.wait) {
 			nxtDisplayCenteredTextLine(2,"Waiting for a");
 			nxtDisplayCenteredTextLine(3,"connection from");
-			nxtDisplayCenteredTextLine(4,"the Field Control");
-			nxtDisplayCenteredTextLine(5,"System. Check that");
-			nxtDisplayCenteredTextLine(6,"this is set as the");
-			nxtDisplayCenteredTextLine(7,"TeleOp program.");
+			nxtDisplayCenteredTextLine(4,"the Field");
+			nxtDisplayCenteredTextLine(5,"Control System.");
+			nxtDisplayCenteredTextLine(6,"Ready when you");
+			nxtDisplayCenteredTextLine(7,"are.");
 		}
 
 		if(systemState.running) {
 			nxtDisplayCenteredTextLine(2,"Running.");
-            nxtDisplayCenteredTextLine(3,"Seconds passed: %d",TIME_PASSED);
+            nxtDisplayCenteredTextLine(3,"Seconds run: %d",TIME_PASSED);
+            nxtDisplayCenteredTextLine(4,"");
+            nxtDisplayCenteredTextLine(5,"");
+            nxtDisplayCenteredTextLine(6,"");
+            nxtDisplayCenteredTextLine(7,"");
 		}
 
 		if(systemState.stopped) {
