@@ -31,5 +31,6 @@ task updateDisplay() {
 
 void displayInit() {
 	bNxtLCDStatusDisplay = true;
+	disableDiagnosticsDisplay();
 	eraseDisplay();
 }
