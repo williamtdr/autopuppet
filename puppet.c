@@ -9,6 +9,7 @@
 #include "joystick.h"
 #include "display.h"
 #include "state.h"
+#include "timer.h"
 
 task main() {
 	switchState(STATE_WAIT);
@@ -16,6 +17,6 @@ task main() {
 	switchState(STATE_RUN);
 
 	while(systemState.stopped == false) {
-		Sleep(1);
+		Sleep(100);
 	}
 }

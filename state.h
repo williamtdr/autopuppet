@@ -1,13 +1,18 @@
+task runTimer();
+
 void onWait() {
 	displayInit();
     StartTask(updateDisplay);
 }
 
 void onStop() {
+	PlaySound(soundException);
 }
 
 void onRun() {
 	StartTask(joystickMonitor);
+	StartTask(runTimer);
+	PlaySound(soundBeepBeep);
 }
 
 void switchState(int newState) {
