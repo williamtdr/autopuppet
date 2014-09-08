@@ -13,13 +13,13 @@ task updateJoysticks() {
 		motor[RightDrive] = 0;
 		if(LAST_ACTION_STATE != STATE_IDLE) {
 			if(LAST_ACTION_STATE == STATE_FORWARD) {
-				writeDebugStreamLine("	goForward(%d, %d);",LAST_ACTION_POWER,LAST_ACTION * 10);
+				writeDebugStreamLine("	goForward(%d, %d);",LAST_ACTION_POWER,LAST_ACTION * 5);
 			}
 			if(LAST_ACTION_STATE == STATE_BACKWARD) {
-				writeDebugStreamLine("	goBackward(%d, %d);",LAST_ACTION_POWER,LAST_ACTION * 10);
+				writeDebugStreamLine("	goBackward(%d, %d);",LAST_ACTION_POWER,LAST_ACTION * 5);
 			}
 			if(LAST_ACTION_STATE == STATE_OTHER) {
-				writeDebugStreamLine("	turn(%d, %d, %d);",OTHER_LEFT,OTHER_RIGHT,LAST_ACTION * 10);
+				writeDebugStreamLine("	turn(%d, %d, %d);",OTHER_LEFT,OTHER_RIGHT,LAST_ACTION * 5);
 			}
 			LAST_ACTION = 1;
 			LAST_ACTION_STATE = STATE_IDLE;
