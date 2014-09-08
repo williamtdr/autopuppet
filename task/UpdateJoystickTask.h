@@ -19,7 +19,7 @@ task updateJoysticks() {
 				writeDebugStreamLine("	goBackward(%d, %d);",LAST_ACTION_POWER,LAST_ACTION * 5);
 			}
 			if(LAST_ACTION_STATE == STATE_OTHER) {
-				writeDebugStreamLine("	turn(%d, %d, %d);",OTHER_LEFT,OTHER_RIGHT,LAST_ACTION * 5);
+				writeDebugStreamLine("	turn(%d, %d, %d);",OTHER_LEFT,OTHER_RIGHT,LAST_ACTION * 10);
 			}
 			LAST_ACTION = 1;
 			LAST_ACTION_STATE = STATE_IDLE;
