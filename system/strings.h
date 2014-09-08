@@ -39,7 +39,7 @@ void writeEndingCodeOutput() {
 }
 
 void writeInitDebugLines() {
-	writeDebugStreamLine("Autopuppet v0.1.0");
+	writeDebugStreamLine("Autopuppet v1.0.0");
 	writeDebugStreamLine("---");
 	writeDebugStreamLine("By williamtdr - github.com/williamtdr");
 	writeDebugStreamLine("");

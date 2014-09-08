@@ -121,7 +121,7 @@ void onJoy2PosUpdate(int x1, int y1, int x2, int y2) {
 }
 
 void displayInit() {
-	bNxtLCDStatusDisplay = true;
+	bNxtLCDStatusDisplay = false;
 	disableDiagnosticsDisplay();
 	eraseDisplay();
 }
