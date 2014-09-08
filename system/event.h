@@ -33,6 +33,7 @@ void onSecondPass() {
 }
 
 task onTick() {
+	LAST_ACTION = LAST_ACTION + 1;
 	TICK_HUNDREDS = TICK_HUNDREDS + 1;
 	if(TICK_HUNDREDS == 100) {
 		TICK_HUNDREDS = 1;
@@ -48,8 +49,71 @@ task onTick() {
 }
 
 void onJoy1PosUpdate(int x1, int y1, int x2, int y2) {
-	motor[LeftDrive] = y1 * 0.78;
-	motor[RightDrive] = y2 * 0.78;
+	int power1 = y1 * 0.78;
+	int power2 = y2 * 0.78;
+
+	int avgpower = (power1 + power2) / 2;
+
+	motor[LeftDrive] = power1;
+	motor[RightDrive] = power2;
+
+	if(y1 > 120 && y2 > 120) {
+		if(LAST_ACTION_STATE != STATE_FORWARD) {
+			if(LAST_ACTION_STATE == STATE_IDLE) {
+				writeDebugStreamLine("	Sleep(%d);",LAST_ACTION * 10);
+			}
+			if(LAST_ACTION_STATE == STATE_BACKWARD) {
+				writeDebugStreamLine("	goBackward(%d, %d);",LAST_ACTION_POWER,LAST_ACTION * 10);
+			}
+			if(LAST_ACTION_STATE == STATE_OTHER) {
+				writeDebugStreamLine("	turn(%d, %d, %d);",OTHER_LEFT,OTHER_RIGHT,LAST_ACTION * 10);
+			}
+			LAST_ACTION = 1;
+			LAST_ACTION_STATE = STATE_FORWARD;
+			LAST_ACTION_POWER = avgpower;
+		} else {
+			LAST_ACTION = LAST_ACTION + 1;
+			LAST_ACTION_POWER = avgpower;
+		}
+	} else if(y1 < -120 && y2 < -120) {
+		if(LAST_ACTION_STATE != STATE_BACKWARD) {
+			if(LAST_ACTION_STATE == STATE_IDLE) {
+				writeDebugStreamLine("	Sleep(%d);",LAST_ACTION * 10);
+			}
+			if(LAST_ACTION_STATE == STATE_FORWARD) {
+				writeDebugStreamLine("	goForward(%d, %d);",LAST_ACTION_POWER,LAST_ACTION * 10);
+			}
+			if(LAST_ACTION_STATE == STATE_OTHER) {
+				writeDebugStreamLine("	turn(%d, %d, %d);",OTHER_LEFT,OTHER_RIGHT,LAST_ACTION * 10);
+			}
+			LAST_ACTION = 1;
+			LAST_ACTION_STATE = STATE_BACKWARD;
+			LAST_ACTION_POWER = avgpower;
+		} else {
+			LAST_ACTION = LAST_ACTION + 1;
+			LAST_ACTION_POWER = avgpower;
+		}
+	} else {
+		if(LAST_ACTION_STATE != STATE_OTHER) {
+			if(LAST_ACTION_STATE == STATE_BACKWARD) {
+				writeDebugStreamLine("	goBackward(%d, %d);",LAST_ACTION_POWER,LAST_ACTION * 10);
+			}
+			if(LAST_ACTION_STATE == STATE_FORWARD) {
+				writeDebugStreamLine("	goForward(%d, %d);",LAST_ACTION_POWER,LAST_ACTION * 10);
+			}
+			if(LAST_ACTION_STATE == STATE_IDLE) {
+				writeDebugStreamLine("	Sleep(%d);",LAST_ACTION * 10);
+			}
+			LAST_ACTION = 1;
+			LAST_ACTION_STATE = STATE_OTHER;
+			LAST_ACTION_POWER = avgpower;
+		} else {
+			OTHER_LEFT = power1;
+			OTHER_RIGHT = power2;
+			LAST_ACTION = LAST_ACTION + 1;
+			LAST_ACTION_POWER = avgpower;
+		}
+	}
 }
 
 void onJoy2PosUpdate(int x1, int y1, int x2, int y2) {

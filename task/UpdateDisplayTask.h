@@ -21,9 +21,9 @@ task updateDisplay() {
     	}
 
     	if(systemState.stopped) {
-    		nxtDisplayCenteredTextLine(2,"Done! Saved to:");
-    		nxtDisplayCenteredTextLine(3,"%s",SAVED_FILE);
-    		nxtDisplayCenteredTextLine(4,"");
+    		nxtDisplayCenteredTextLine(2,"Done! Check the");
+    		nxtDisplayCenteredTextLine(3,"debug log on");
+    		nxtDisplayCenteredTextLine(4,"the computer.");
     		nxtDisplayCenteredTextLine(5,"");
     		nxtDisplayCenteredTextLine(6,"Press [   ]");
     		nxtDisplayCenteredTextLine(7,"to stop.");

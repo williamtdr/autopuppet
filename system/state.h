@@ -3,6 +3,7 @@ void displayInit();
 
 void onWait() {
 	displayInit();
+	writeInitDebugLines();
     StartTask(updateDisplay);
 }
 
@@ -10,9 +11,16 @@ void onStop() {
 	PlaySound(soundException);
 	motor[LeftDrive] = 0;
 	motor[RightDrive] = 0;
+
+	writeEndingCodeOutput();
+	writeOnStopDebugLines();
 }
 
 void onRun() {
+	LAST_ACTION_STATE = STATE_IDLE;
+	LAST_ACTION = 0;
+	writeOnRunDebugLines();
+	writeInitCodeOutput();
 	PlaySound(soundBeepBeep);
 }
 
