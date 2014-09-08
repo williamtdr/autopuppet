@@ -32,6 +32,7 @@ void writeInitCodeOutput() {
 
 	writeDebugStreamLine("task main() {");
 	writeDebugStreamLine("	bMotorReflected[LeftDrive] = true;");
+	writeDebugStreamLine("	waitForStart();");
 }
 
 void writeEndingCodeOutput() {
