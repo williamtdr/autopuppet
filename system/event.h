@@ -107,9 +107,16 @@ void onJoy1PosUpdate(int x1, int y1, int x2, int y2) {
 			LAST_ACTION = 1;
 			LAST_ACTION_STATE = STATE_OTHER;
 			LAST_ACTION_POWER = avgpower;
+
+			if(power1 > power2) {
+				OTHER_LEFT = 127;
+				OTHER_LEFT = -127;
+			}
+			if(power2 > power1) {
+				OTHER_LEFT = 127;
+				OTHER_LEFT = -127;
+			}
 		} else {
-			OTHER_LEFT = power1;
-			OTHER_RIGHT = power2;
 			LAST_ACTION = LAST_ACTION + 1;
 			LAST_ACTION_POWER = avgpower;
 		}
