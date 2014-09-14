@@ -23,11 +23,17 @@ void writeInitCodeOutput() {
 	writeDebugStreamLine("	stopMotors();");
 	writeDebugStreamLine("}");
 	writeDebugStreamLine("");
-	writeDebugStreamLine("void turn(const int powerLeft, const int powerRight, const int duration) {");
-	writeDebugStreamLine("	motor[LeftDrive] = powerLeft;");
-	writeDebugStreamLine("	motor[RightDrive] = powerRight;");
-	writeDebugStreamLine("	Sleep(duration);");
-	writeDebugStreamLine("	stopMotors();");
+    writeDebugStreamLine("void turnLeft(const int power, const int duration) {");
+    writeDebugStreamLine("	motor[LeftDrive] = power;");
+    writeDebugStreamLine("	motor[RightDrive] = -power;");
+    writeDebugStreamLine("	Sleep(duration);");
+    writeDebugStreamLine("	stopMotors();");
+    writeDebugStreamLine("}");
+    writeDebugStreamLine("void turnRight(const int power, const int duration) {");
+    writeDebugStreamLine("	motor[LeftDrive] = power;");
+    writeDebugStreamLine("	motor[RightDrive] = -power;");
+    writeDebugStreamLine("	Sleep(duration);");
+    writeDebugStreamLine("	stopMotors();");
     writeDebugStreamLine("}");
 
 	writeDebugStreamLine("task main() {");
@@ -40,7 +46,7 @@ void writeEndingCodeOutput() {
 }
 
 void writeInitDebugLines() {
-	writeDebugStreamLine("Autopuppet v1.0.0");
+	writeDebugStreamLine("Autopuppet v1.2.0");
 	writeDebugStreamLine("---");
 	writeDebugStreamLine("By williamtdr - github.com/williamtdr");
 	writeDebugStreamLine("");

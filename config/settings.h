@@ -9,4 +9,4 @@
 // and therefore the program 'sleeping'. This is also used to determine whether
 // the robot is going forward or backwards.
 // Lower value = more precise.
-#define JoystickPrecision	5
+#define JoystickPrecision	10

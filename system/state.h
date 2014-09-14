@@ -1,5 +1,6 @@
 task updateDisplay();
 void displayInit();
+void writePrevLine();
 
 void onWait() {
 	displayInit();
@@ -12,6 +13,7 @@ void onStop() {
 	motor[LeftDrive] = 0;
 	motor[RightDrive] = 0;
 
+    writePrevLine();
 	writeEndingCodeOutput();
 	writeOnStopDebugLines();
 }
