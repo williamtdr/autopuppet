@@ -46,9 +46,9 @@ void writeEndingCodeOutput() {
 }
 
 void writeInitDebugLines() {
-	writeDebugStreamLine("Autopuppet v1.2.0");
+	writeDebugStreamLine("Autopuppet v1.0.0");
 	writeDebugStreamLine("---");
-	writeDebugStreamLine("By williamtdr - github.com/williamtdr");
+	writeDebugStreamLine("Updates: github.com/williamtdr/autopuppet");
 	writeDebugStreamLine("");
 	writeDebugStreamLine("Waiting for you to start the program.");
 	writeDebugStreamLine("Place your hand on the joystick and move your robot into position.");

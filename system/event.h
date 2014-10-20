@@ -95,19 +95,19 @@ void onJoy1PosUpdate(int x1, int y1, int x2, int y2) {
     int power1 = y1 * 0.78;
     int power2 = y2 * 0.78;
 
-    if(y1 > 40 || y2 > 40 || y1 < -40 || y2 < -40) {
+    if(y1 > JOYSTICK_PRECISION || y2 > JOYSTICK_PRECISION || y1 < -JOYSTICK_PRECISION || y2 < -JOYSTICK_PRECISION) {
         int avgpower = (power1 + power2) / 2;
 
         power_data[3] = power_data[2];
         power_data[2] = power_data[1];
         power_data[1] = power_data[0];
 
-        if(y1 > 40 && y2 < -40) {
+        if(y1 > JOYSTICK_PRECISION && y2 < -JOYSTICK_PRECISION) {
             power_data[0] = y1;
-        } else if(y1 < -40 && y2 > 40) {
+        } else if(y1 < -JOYSTICK_PRECISION && y2 > JOYSTICK_PRECISION) {
             power_data[0] = y2;
         } else {
-            if(avgpower > 40) {
+            if(avgpower > JOYSTICK_PRECISION) {
                 power_data[0] = avgpower;
             } else {
                 power_data[0] = power_data[1];
